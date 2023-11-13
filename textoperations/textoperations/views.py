@@ -7,3 +7,9 @@ def index(request):
 def about(request):
     return  HttpResponse('<h1 style="color:red;">About Section</h1>')
 
+def services(request):
+    return HttpResponse("Services page")
+
+def relation(request):
+    return HttpResponse("Relation page")
+
