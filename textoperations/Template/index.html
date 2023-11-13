@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #navbar{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 0px;
+            margin: 15px 6px;
+        }
+        #navbar::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 45px;
+            background-color: whitesmoke;
+            z-index: -1;
+        }
+        #navbar ul{
+            display: flex;
+        }
+        #navbar ul li{
+            list-style: none;
+        }
+        #navbar ul li a{
+            text-decoration: none;
+            padding: 8px 20px;
+            color: black;
+            cursor: pointer;
+        }
+        #navbar ul li a:hover{
+            background-color: black;
+            border-radius: 28px;
+            color: whitesmoke;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .box{
+            border: 2px solid black;
+            border-radius: 15px;
+            margin: 10px;
+            padding: 12px;
+        }
+        .writer textarea{
+            display: block;
+            margin: 20px auto;
+        }
+        .writer input[type="submit"]{
+            display: block;
+            margin: 20px auto;
+            background-color: black;
+            color: white;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 28px;
+        }
+        .writer textarea{
+            display: block;
+            margin: 20px auto;
+            padding: 25px;
+            border: 2px solid purple;
+            border-radius: 12px;
+            width: 75%;
+            font-size: 1rem;
+        }
+        .box1 input[type="checkbox"]{
+            display: block;
+            margin: 10px;
+        }
+        .box1 label{
+            display: block;
+        }
+        .box1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#" target="_blank">Home</a></li>
+            <li><a href="#" target="_blank">About</a></li>
+            <li><a href="#" target="_blank">Contact</a></li>
+            <li><a href="#" target="_blank">FAQs</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="box">Service</div>
+        <div class="box">About</div>
+        <div class="box">Service</div>
+        <div class="box">Contact</div>
+        <div class="box">Signup</div>
+    </div>
+    <div class="writer">
+        <form action="/task" method="get">
+            <textarea name="prompt" id="prompt" cols="30" rows="10"></textarea>        
+            <div class="box1">
+                <input type="checkbox" name="removepunc" id="check">
+                <label for="check">Remove Punctuations</label>
+            </div>
+    <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- <div class="message">Hello {{name}} :<br>{{message}}</div> -->
+</body>
+</html>
