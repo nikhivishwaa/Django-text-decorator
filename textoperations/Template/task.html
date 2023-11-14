@@ -1,12 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Global variables */
+        :root {
+            --bgcolor: rgb(237, 237, 237);
+            --txtcolor: rgb(0, 0, 0);
+        }
+
+        /* Navigation Menu */
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            padding: 15px 0px;
+        }
+
+        #navbar::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 64px;
+            background-color: var(--bgcolor);
+            z-index: -1;
+        }
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+        }
+
+        #navbar ul li a {
+            text-decoration: none;
+            padding: 8px 20px;
+            color: var(--txtcolor);
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        #navbar ul li a:hover {
+            background-color: var(--txtcolor);
+            border-radius: 28px;
+            color: var(--bgcolor);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 10px auto;
+        }
+
+        .box {
+            border: 2px solid purple;
+            font-family: Tahoma;
+            border-radius: 15px;
+            margin: 10px;
+            padding: 12px 32px;
+            font-size: 1.4rem;
+            color: #5d1bd0;
+            background-color: #f9f9f9;
+            animation: grad;
+            animation-timing-function: ease-in;
+            animation-fill-mode: alternate;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            transition-property: color;
+            transition-duration: .5s;
+            transition-timing-function: ease-in-out;
+        }
+
+        @keyframes grad {
+            0% {
+                color: #5d1bd0;
+            }
+
+            50% {
+                color: #7c2fff;
+            }
+
+            100% {
+                color: #8649f0;
+            }
+        }
+
+        /* Window for chnge input/ output tab withinn same page */
+        .window {
+            margin: 20px auto;
+        }
+
+        .window div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .window #btn1 {
+            font-size: 1rem;
+            padding: 10px 15px;
+            background-color: var(--bgcolor);
+            color: var(--txtcolor);
+            border: none;
+            cursor: pointer;
+            border-radius: 23px 0px 0px 23px;
+        }
+
+        .window #btn2 {
+            border: none;
+            padding: 10px 15px;
+            background-color: var(--txtcolor);
+            color: var(--bgcolor);
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 0px 23px 23px 0px;
+        }
+
+        .window #btn1:hover {
+            background-color: rgb(223, 223, 223);
+            color: rgb(7, 7, 7);
+        }
+
+        .window #btn2:hover {
+            background-color: rgb(223, 223, 223);
+            color: rgb(7, 7, 7);
+        }
+
+
+        /* input form  */
+        #input {
+            display: none;
+        }
+
+        .writer textarea {
+            display: block;
+            margin: 20px auto;
+            background-color: #f9f9f9;
+        }
+
+        .writer input[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            background-color: var(--txtcolor);
+            color: var(--bgcolor);
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 28px;
+        }
+
+        .writer textarea {
+            display: block;
+            margin: 20px auto;
+            padding: 25px;
+            border: 2px solid purple;
+            border-radius: 12px;
+            width: 75%;
+            font-size: 1rem;
+        }
+
+        .writer #output {
+            margin: 20px auto;
+            padding: 25px;
+            border: 2px solid purple;
+            border-radius: 12px;
+            width: 75%;
+            height: 100%;
+            flex-direction: column;
+            font-size: 1rem;
+            background-color: var(--bgcolor);
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .box1 input[type="checkbox"] {
+            display: block;
+            margin: 10px;
+        }
+        
+        .choice {
+            display: flex;
+            width: 78%;
+            margin: 5px auto;
+            flex-direction: column;
+            padding: 12px;
+        }
+        
+        .box1 label {
+            display: block;
+        }
+
+        .box1 {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+        
+        .box1 select {
+            padding: 2px 10px;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 83%;
+            margin: auto;
+            border-radius: 5px;
+            border: 2px solid purple;
+            font-size: 1rem;
+        }
+        
+        #dropdown {
+            margin: auto;
+        }
+        
+        pre {
+            font-size: 1rem;
+            display: block;
+        }
+        </style>
 </head>
+
 <body>
-    {{result}}
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="box">Service</div>
+        <div class="box">About</div>
+        <div class="box">Service</div>
+        <div class="box">Contact</div>
+        <div class="box">Signup</div>
+    </div>
+    <div class="window">
+        <div>
+            <button class="btn" id="btn1" onclick="inputtab()">Input</button>
+            <button class="btn" id="btn2" onclick="outputtab()">Output</button>
+        </div>
+    </div>
+    <div class="writer">
+        <div id="output">
+            <pre>{{result}}</pre>
+        </div>
+        <form id="input" action="/task" method="post">
+            {% csrf_token %}
+            <textarea name="prompt" id="prompt" cols="30" rows="10">{{data}}</textarea>
+            <div class="choice">
+
+                <div class="box1">
+                    <input type="checkbox" name="removepunc" id="check1">
+                    <label for="check1">Remove Punctuations</label>
+                </div>
+                <div class="box1">
+                    <input type="checkbox" name="removenewline" id="check2">
+                    <label for="check2">Remove New Line</label>
+                </div>
+                <div class="box1">
+                    <input type="checkbox" name="extraspace" id="check3">
+                    <label for="check3">Remove Extra Spaces</label>
+                </div>
+                <div class="box1">
+                    <label for="text-format" id="dropdown">Text Formatting</label>
+                    <select name="text-format" id="format-choice">
+                        <option value="none">-- Select --</option>
+                        <option value="capital">Capitalize</option>
+                        <option value="upper">UPPER CASE</option>
+                        <option value="lower">lower case</option>
+                        <option value="title">Title</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- <div class="message">Hello {{name}} :<br>{{message}}</div> -->
+    <script>
+        let input = document.getElementById('btn1');
+        let output = document.getElementById('btn2');
+        let clr = "rgb(0, 0, 0)";
+        let bg = "rgb(237, 237, 237)";
+        function outputtab() {
+            let visible = document.getElementById('output');
+            let unvisible = document.getElementById('input');
+            visible.style.display = "flex";
+            unvisible.style.display = "none";
+            output.style.backgroundColor = clr;
+            output.style.color = bg;
+            input.style.backgroundColor = bg;
+            input.style.color = clr;
+        }
+        function inputtab() {
+            let visible = document.getElementById('input');
+            let unvisible = document.getElementById('output');
+            visible.style.display = "block";
+            unvisible.style.display = "none";
+            input.style.backgroundColor = clr;
+            input.style.color = bg;
+            output.style.backgroundColor = bg;
+            output.style.color = clr;
+        }
+    </script>
 </body>
+
 </html>
