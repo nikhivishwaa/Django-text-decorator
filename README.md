@@ -2,7 +2,7 @@
 
 ## Homepage
 <img src="img/img1.png" alt="Homepage"><br>
-<button><a href="" style="text-decoration:none;font-size:.9rem;">View on Replit</a></button>
+<button><a href="https://replit.com/@nikhivishwa/Text-Decorator-app">View on Replit</a></button>
 
 ## Input page
 <img src="img/img2.png" alt="Inputpage">
